@@ -43,6 +43,14 @@
 #include <string.h>
 #include "/root/xaiva_decoder/Third_party/libjpeg-turbo/turbojpeg.h"
 
+/**
+* @brief Encoding 후 생성된 Media Data 처리 방법을 선택하기 위한 Method @n 
+* XaivaMedia::XE_OUTPUT_TYPE::MEMORY로 설정 된 경우, vector<uint8_t>의 형태로 Class 내에 보관 됨. @n
+* setEncoder()호출 당시 strOutputURL이 비어있는 상태로 전달되었다면, 강제로 XaivaMedia::XE_OUTPUT_TYPE::MEMORY 타입으로 변경 됨. @n
+* @param xeOutputType : XaivaMedia::XE_OUTPUT_TYPE::FILE, XaivaMedia::XE_OUTPUT_TYPE::MEMORY 둘 중 하나 입력. @n 
+* @return
+*   - 0 : SetOutputType() 작업 성공. @n
+*/
 int main()
 {
     unsigned char *srcBuf; //passed in as a param containing pixel data in RGB pixel interleaved format
